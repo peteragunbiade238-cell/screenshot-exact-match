@@ -224,3 +224,61 @@
     animation: none;
   }
 }
+
+/* Gentle vertical drift for hero imagery. */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@utility animate-float {
+  animation: float-y 7s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Headline words rise out of a clipped line. */
+@keyframes word-rise-in {
+  from {
+    transform: translateY(105%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@utility word-rise {
+  animation: word-rise-in 1s var(--ease-out-expo) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Card hover: lift with a soft violet glow. */
+@utility card-lift {
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo),
+    border-color 0.5s var(--ease-out-expo);
+  &:hover {
+    transform: translateY(-6px);
+    border-color: oklch(0.7 0.16 292 / 45%);
+    box-shadow:
+      var(--shadow-card),
+      0 24px 60px -24px oklch(0.7 0.16 292 / 35%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover {
+      transform: none;
+    }
+  }
+}

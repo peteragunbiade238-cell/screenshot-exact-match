@@ -40,10 +40,10 @@ export function Services() {
         <div className="mt-16 grid gap-4 lg:grid-cols-12">
           {services.map((s, i) => (
             <Reveal key={s.id} delay={i * 80} className={cn(spans[i])}>
-              <article className="surface-card group flex h-full flex-col p-6 transition-colors duration-500 hover:border-border-strong md:p-8">
+              <article className="surface-card card-lift group flex h-full flex-col p-6 md:p-8">
                 <div className="flex items-start justify-between gap-6">
                   <span className="font-mono text-xs text-primary">{s.index}</span>
-                  <div className="h-24 w-40 opacity-80 transition-opacity duration-500 group-hover:opacity-100 md:h-28 md:w-48">
+                  <div className="h-24 w-40 opacity-80 transition-[opacity,transform] duration-500 group-hover:scale-105 group-hover:opacity-100 md:h-28 md:w-48">
                     <ServiceGlyph id={s.id} />
                   </div>
                 </div>

@@ -2,12 +2,16 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { expertise, site } from "@/content/site";
 import heroVisual from "@/assets/hero-visual.jpg";
+import { CursorGlow } from "./CursorGlow";
+import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
+import { RiseWord, SplitWords } from "./SplitWords";
 
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-28 md:pt-36">
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-40 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" aria-hidden />
+      <CursorGlow />
 
       <div className="container-page relative grid gap-12 pb-20 lg:grid-cols-12 lg:gap-10 lg:pb-28">
         <div className="lg:col-span-7 xl:col-span-8">
@@ -22,40 +26,49 @@ export function Hero() {
           </Reveal>
 
           <h1 className="display text-[clamp(2.6rem,6vw,5.75rem)]">
-            <Reveal as="span" className="block" delay={80}>
-              Building Digital Experiences.
-            </Reveal>
-            <Reveal as="span" className="block text-muted-foreground" delay={180}>
-              Automating Possibilities.
-            </Reveal>
-            <Reveal as="span" className="block" delay={280}>
-              <span className="accent-serif text-primary">Creating</span> What's Next.
-            </Reveal>
+            <span className="block">
+              <SplitWords text="Building Digital Experiences." startDelay={80} />
+            </span>
+            <span className="block text-muted-foreground">
+              <SplitWords text="Automating Possibilities." startDelay={380} />
+            </span>
+            <span className="block">
+              <RiseWord delay={680} className="accent-serif text-primary">
+                Creating
+              </RiseWord>{" "}
+              <SplitWords text="What's Next." startDelay={750} />
+            </span>
           </h1>
 
-          <Reveal delay={380}>
+          <Reveal delay={900}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               I help businesses build powerful websites, streamline operations with intelligent
               automation, and create engaging digital content using modern technologies.
             </p>
           </Reveal>
 
-          <Reveal delay={460} className="mt-10 flex flex-wrap gap-3">
-            <Button asChild variant="hero" size="xl">
-              <a href="#work">
-                Explore My Work <ArrowDownRight />
-              </a>
-            </Button>
-            <Button asChild variant="line" size="xl">
-              <a href="#contact">
-                Let's Work Together <ArrowUpRight />
-              </a>
-            </Button>
+          <Reveal delay={1000} className="mt-10 flex flex-wrap gap-3">
+            <Magnetic>
+              <Button asChild variant="hero" size="xl" className="group">
+                <a href="#work">
+                  Explore My Work{" "}
+                  <ArrowDownRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="line" size="xl" className="group">
+                <a href="#contact">
+                  Let's Work Together{" "}
+                  <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </Button>
+            </Magnetic>
           </Reveal>
         </div>
 
         <Reveal delay={200} className="lg:col-span-5 xl:col-span-4">
-          <figure className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-3xl border border-border lg:max-w-none">
+          <figure className="animate-float relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-3xl border border-border lg:max-w-none">
             <img
               src={heroVisual}
               alt="Abstract composition of layered glass panels traced with violet light"

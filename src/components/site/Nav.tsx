@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, site } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { ScrollProgress } from "./ScrollProgress";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +53,7 @@ export function Nav() {
       <nav className="container-page flex h-16 items-center justify-between md:h-20" aria-label="Main">
         <a href="#home" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span
-            className="grid size-8 place-items-center rounded-full border border-border-strong font-mono text-[0.7rem] tracking-wider transition-colors group-hover:border-primary group-hover:text-primary"
+            className="grid size-8 place-items-center rounded-full border border-border-strong font-mono text-[0.7rem] tracking-wider transition-[color,border-color,transform] duration-500 group-hover:rotate-[360deg] group-hover:border-primary group-hover:text-primary"
             aria-hidden
           >
             {site.name
@@ -70,10 +71,10 @@ export function Nav() {
                 href={item.href}
                 aria-current={active === item.href ? "true" : undefined}
                 className={cn(
-                  "block rounded-full px-4 py-1.5 text-sm transition-colors",
+                  "block rounded-full px-4 py-1.5 text-sm transition-[color,background-color] duration-300",
                   active === item.href
                     ? "bg-surface-raised text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
+                    : "text-muted-foreground hover:bg-surface-raised/50 hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -124,6 +125,8 @@ export function Nav() {
           </div>
         </div>
       )}
+
+      <ScrollProgress />
     </header>
   );
 }

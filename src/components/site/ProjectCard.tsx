@@ -8,7 +8,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <article className="group flex h-full flex-col">
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-surface">
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-surface transition-[border-color,box-shadow,transform] duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-1 group-hover:border-primary/40 group-hover:shadow-[0_30px_60px_-30px_oklch(0.7_0.16_292/0.45)] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
         <img
           src={project.image}
           alt={`${project.title} thumbnail`}
