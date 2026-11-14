@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All editable portfolio copy, services, projects and social links live in `src/content/site.ts`; components only render it, so content edits never touch layout code.
+- Empty `url` fields render as "coming soon" instead of dead links, so placeholders stay honest until real links exist.
+- Contact form validation lives in `src/lib/contact-form.ts` (zod) and is covered by `src/test/portfolio-rules.test.ts`.
