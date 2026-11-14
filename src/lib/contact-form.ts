@@ -22,7 +22,7 @@ export const contactSchema = z.object({
 });
 
 export type ContactValues = z.infer<typeof contactSchema>;
-export type ContactErrors = Partial<Record<keyof ContactValues, string>>;
+export type ContactErrors = Partial<Record<keyof ContactValues, string | undefined>>;
 
 export function validateContact(values: ContactValues): ContactErrors {
   const result = contactSchema.safeParse(values);

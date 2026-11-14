@@ -46,7 +46,7 @@ export function Contact() {
     e.preventDefault();
     const found = validateContact(values);
     setErrors(found);
-    if (Object.keys(found).length > 0) {
+    if (Object.values(found).some(Boolean)) {
       const first = Object.keys(found)[0];
       document.getElementById(`contact-${first}`)?.focus();
       setChecked(false);
@@ -218,7 +218,7 @@ function Field({
 }: {
   id: string;
   label: string;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
