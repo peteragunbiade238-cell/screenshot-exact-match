@@ -6,6 +6,8 @@ import { BrowserShowcase } from "@/components/site/BrowserShowcase";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Work } from "@/components/site/Work";
+import { Purpose } from "@/components/site/Purpose";
+import { Testimonials } from "@/components/site/Testimonials";
 import { Process } from "@/components/site/Process";
 import { Faq } from "@/components/site/Faq";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -58,6 +60,11 @@ function Index() {
         <div className="cv-auto">
           <Work />
         </div>
+        <div className="cv-auto">
+          <Purpose />
+        </div>
+        {/* Testimonials hides itself until real entries exist, so it is not wrapped in cv-auto. */}
+        <Testimonials />
         <div className="cv-auto">
           <Process />
         </div>
