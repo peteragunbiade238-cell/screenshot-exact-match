@@ -277,6 +277,51 @@
   }
 }
 
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@utility animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Fades the left and right edges of a marquee into the page. */
+@utility marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+/* Slow vertical pan that mimics scrolling a page inside a browser frame. */
+@keyframes pan-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-25%);
+  }
+}
+
+@utility animate-pan {
+  animation: pan-y 16s ease-in-out infinite alternate;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Skip rendering work for sections far below the fold until they are close. */
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* Gentle vertical drift for hero imagery. */
 @keyframes float-y {
   0%,

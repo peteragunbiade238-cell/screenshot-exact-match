@@ -1,9 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
+import { ToolsMarquee } from "@/components/site/ToolsMarquee";
+import { BrowserShowcase } from "@/components/site/BrowserShowcase";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Work } from "@/components/site/Work";
+import { Process } from "@/components/site/Process";
+import { Faq } from "@/components/site/Faq";
+import { CtaBand } from "@/components/site/CtaBand";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
@@ -39,10 +44,32 @@ function Index() {
       <Nav />
       <main id="main">
         <Hero />
-        <About />
-        <Services />
-        <Work />
-        <Contact />
+        <ToolsMarquee />
+        {/* cv-auto lets the browser skip rendering off-screen sections until they are near the viewport. */}
+        <div className="cv-auto">
+          <BrowserShowcase />
+        </div>
+        <div className="cv-auto">
+          <About />
+        </div>
+        <div className="cv-auto">
+          <Services />
+        </div>
+        <div className="cv-auto">
+          <Work />
+        </div>
+        <div className="cv-auto">
+          <Process />
+        </div>
+        <div className="cv-auto">
+          <Faq />
+        </div>
+        <div className="cv-auto">
+          <CtaBand />
+        </div>
+        <div className="cv-auto">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </>
