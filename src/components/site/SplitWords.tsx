@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type RiseWordProps = {
   children: ReactNode;
   delay?: number;
-  className?: string;
+  className?: string | undefined;
 };
 
 /** One word that rises out of a clipped line on mount. */
@@ -25,7 +25,7 @@ type SplitWordsProps = {
   text: string;
   startDelay?: number;
   step?: number;
-  className?: string;
+  className?: string | undefined;
 };
 
 /** Splits a plain string into words and staggers their entrance. */
