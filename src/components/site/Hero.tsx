@@ -2,6 +2,7 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { expertise, site } from "@/content/site";
 import heroVisual from "@/assets/hero-visual.jpg";
+import mockupImage from "@/assets/work-web-2.jpg";
 import { CursorGlow } from "./CursorGlow";
 import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
@@ -100,6 +101,27 @@ export function Hero() {
               </figcaption>
             </figure>
             <RotatingBadge className="absolute -left-4 top-1/3 lg:-left-14" />
+
+            {/* Tilted browser card floating over the image, a decorative project preview. */}
+            <div
+              aria-hidden
+              className="absolute -right-4 bottom-24 w-[58%] rotate-[-6deg] overflow-hidden rounded-xl border border-border-strong bg-surface p-1 shadow-[0_30px_60px_-20px_oklch(0_0_0/0.8)] lg:-right-12"
+            >
+              <div className="flex gap-1 px-1.5 pb-1 pt-0.5">
+                <span className="size-1.5 rounded-full bg-border-strong" />
+                <span className="size-1.5 rounded-full bg-border-strong" />
+                <span className="size-1.5 rounded-full bg-border-strong" />
+              </div>
+              <img
+                src={mockupImage}
+                alt=""
+                width={1280}
+                height={960}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full rounded-lg object-cover"
+              />
+            </div>
           </div>
         </Reveal>
       </div>
