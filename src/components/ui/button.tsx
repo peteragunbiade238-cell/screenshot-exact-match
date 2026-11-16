@@ -16,10 +16,11 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "rounded-full bg-foreground text-background hover:bg-primary hover:text-primary-foreground transition-[background-color,color,transform] duration-300 active:scale-[0.98]",
+        // Champagne-gold pill with a light sheen that sweeps across on hover.
+        hero: "relative overflow-hidden rounded-full bg-primary text-primary-foreground shadow-[0_10px_40px_-12px_color-mix(in_oklch,var(--primary)_60%,transparent)] transition-[background-color,color,transform,box-shadow] duration-300 before:pointer-events-none before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:transition-transform before:duration-700 hover:-translate-y-0.5 hover:before:translate-x-full active:scale-[0.98] motion-reduce:before:transition-none",
         accent:
-          "rounded-full bg-primary text-primary-foreground hover:bg-foreground hover:text-background transition-colors duration-300",
-        line: "rounded-full border border-border-strong bg-transparent text-foreground hover:border-foreground hover:bg-foreground/5 transition-colors duration-300",
+          "rounded-full border border-primary/50 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300",
+        line: "rounded-full border border-border-strong bg-transparent text-foreground hover:border-primary/60 hover:text-primary transition-colors duration-300",
       },
       size: {
         default: "h-9 px-4 py-2",

@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, site } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { ScrollProgress } from "./ScrollProgress";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,9 +51,9 @@ export function Nav() {
       )}
     >
       <nav className="container-page flex h-16 items-center justify-between md:h-20" aria-label="Main">
-        <a href="#home" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <a href="#home" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <span
-            className="grid size-8 place-items-center rounded-full border border-border-strong font-mono text-[0.7rem] tracking-wider transition-colors group-hover:border-primary group-hover:text-primary"
+            className="grid size-9 place-items-center rounded-full border border-primary/40 font-serif text-base italic tracking-wide text-primary transition-[background-color,color,transform] duration-500 group-hover:rotate-[360deg] group-hover:bg-primary group-hover:text-primary-foreground"
             aria-hidden
           >
             {site.name
@@ -60,20 +61,20 @@ export function Nav() {
               .map((w) => w[0])
               .join("")}
           </span>
-          <span className="text-sm font-medium tracking-tight">{site.name}</span>
+          <span className="font-serif text-xl tracking-tight">{site.name}</span>
         </a>
 
-        <ul className="hidden items-center gap-1 rounded-full border border-border bg-surface/60 p-1 backdrop-blur md:flex">
+        <ul className="hidden items-center gap-1 rounded-full border border-border bg-background/50 p-1 backdrop-blur-md md:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 aria-current={active === item.href ? "true" : undefined}
                 className={cn(
-                  "block rounded-full px-4 py-1.5 text-sm transition-colors",
+                  "block rounded-full px-4 py-1.5 text-sm transition-[color,background-color] duration-300",
                   active === item.href
-                    ? "bg-surface-raised text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
+                    ? "bg-primary/15 text-primary"
+                    : "text-muted-foreground hover:bg-surface-raised/60 hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -107,16 +108,16 @@ export function Nav() {
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-baseline justify-between py-5 text-3xl font-medium tracking-tight"
+                  className="flex items-baseline justify-between py-5 font-serif text-4xl tracking-tight"
                 >
                   {item.label}
-                  <span className="font-mono text-xs text-subtle">0{i + 1}</span>
+                  <span className="font-serif text-lg italic text-primary">0{i + 1}</span>
                 </a>
               </li>
             ))}
           </ul>
           <div className="container-page">
-            <Button asChild variant="accent" size="xl" className="w-full">
+            <Button asChild variant="hero" size="xl" className="w-full">
               <a href="#contact" onClick={() => setOpen(false)}>
                 Let's Talk
               </a>
@@ -124,6 +125,8 @@ export function Nav() {
           </div>
         </div>
       )}
+
+      <ScrollProgress />
     </header>
   );
 }
