@@ -24,8 +24,8 @@ export function Services() {
               <SectionLabel index="02">Services</SectionLabel>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="display mt-8 text-[clamp(2.5rem,5.5vw,4.75rem)]">
-                Four disciplines, <span className="accent-serif text-primary">one</span> partner.
+              <h2 className="display mt-8 text-[clamp(2.75rem,6vw,5.25rem)]">
+                Four disciplines, <span className="accent-serif gold-text">one</span> partner.
               </h2>
             </Reveal>
           </div>
@@ -37,25 +37,25 @@ export function Services() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-4 lg:grid-cols-12">
+        <div className="mt-16 grid gap-5 lg:grid-cols-12">
           {services.map((s, i) => (
             <Reveal key={s.id} delay={i * 80} className={cn(spans[i])}>
-              <article className="surface-card card-lift group flex h-full flex-col p-6 md:p-8">
+              <article className="surface-card card-lift group flex h-full flex-col p-7 md:p-10">
                 <div className="flex items-start justify-between gap-6">
-                  <span className="font-mono text-xs text-primary">{s.index}</span>
+                  <span className="font-serif text-4xl italic leading-none text-primary">{s.index}</span>
                   <div className="h-24 w-40 opacity-80 transition-[opacity,transform] duration-500 group-hover:scale-105 group-hover:opacity-100 md:h-28 md:w-48">
                     <ServiceGlyph id={s.id} />
                   </div>
                 </div>
 
-                <h3 className="mt-6 text-2xl font-medium tracking-tight md:text-3xl">{s.title}</h3>
+                <h3 className="mt-8 font-serif text-3xl tracking-tight md:text-4xl">{s.title}</h3>
                 <p className="mt-3 max-w-lg text-muted-foreground">{s.description}</p>
 
                 <ul className="mt-8 flex flex-wrap gap-2">
                   {s.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-border px-3 py-1 text-[0.8rem] text-muted-foreground transition-colors group-hover:border-border-strong"
+                      className="rounded-full border border-border px-3 py-1 text-[0.8rem] text-muted-foreground transition-colors group-hover:border-primary/40"
                     >
                       {item}
                     </li>

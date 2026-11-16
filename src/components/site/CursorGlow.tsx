@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const CAN_HOVER = "(hover: hover) and (prefers-reduced-motion: no-preference)";
 
-/** Soft violet spotlight that follows the pointer inside its positioned parent. */
+/** Soft gold spotlight that follows the pointer inside its positioned parent. */
 export function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -43,7 +43,7 @@ export function CursorGlow() {
       className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500"
       style={{
         background:
-          "radial-gradient(480px circle at var(--mx, 50%) var(--my, 30%), oklch(0.7 0.16 292 / 14%), transparent 65%)",
+          "radial-gradient(520px circle at var(--mx, 50%) var(--my, 30%), color-mix(in oklch, var(--primary) 14%, transparent), transparent 65%)",
       }}
     />
   );

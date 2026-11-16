@@ -10,7 +10,7 @@
 
 @theme inline {
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
@@ -61,48 +61,49 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Single dark theme: deep charcoal, bone-white type, one restrained violet accent. */
+/* Single dark theme: warm noir, ivory type, one champagne-gold accent. */
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.145 0.004 286);
-  --foreground: oklch(0.965 0.004 286);
-  --surface: oklch(0.175 0.005 286);
-  --surface-raised: oklch(0.205 0.006 286);
-  --card: oklch(0.175 0.005 286);
-  --card-foreground: oklch(0.965 0.004 286);
-  --popover: oklch(0.19 0.006 286);
-  --popover-foreground: oklch(0.965 0.004 286);
-  --primary: oklch(0.7 0.16 292);
-  --primary-foreground: oklch(0.15 0.02 292);
-  --primary-soft: oklch(0.7 0.16 292 / 12%);
-  --secondary: oklch(0.22 0.006 286);
-  --secondary-foreground: oklch(0.965 0.004 286);
-  --muted: oklch(0.22 0.006 286);
-  --muted-foreground: oklch(0.7 0.01 286);
-  --subtle: oklch(0.52 0.01 286);
-  --accent: oklch(0.24 0.008 286);
-  --accent-foreground: oklch(0.965 0.004 286);
+  --background: oklch(0.135 0.006 70);
+  --foreground: oklch(0.955 0.012 85);
+  --surface: oklch(0.17 0.007 70);
+  --surface-raised: oklch(0.205 0.009 70);
+  --card: oklch(0.17 0.007 70);
+  --card-foreground: oklch(0.955 0.012 85);
+  --popover: oklch(0.19 0.008 70);
+  --popover-foreground: oklch(0.955 0.012 85);
+  --primary: oklch(0.8 0.09 82);
+  --primary-foreground: oklch(0.18 0.02 70);
+  --primary-soft: oklch(0.8 0.09 82 / 12%);
+  --secondary: oklch(0.22 0.008 70);
+  --secondary-foreground: oklch(0.955 0.012 85);
+  --muted: oklch(0.22 0.008 70);
+  --muted-foreground: oklch(0.72 0.012 80);
+  --subtle: oklch(0.54 0.012 75);
+  --accent: oklch(0.24 0.01 70);
+  --accent-foreground: oklch(0.955 0.012 85);
   --destructive: oklch(0.68 0.19 22);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --border-strong: oklch(1 0 0 / 16%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.7 0.16 292 / 60%);
-  --chart-1: oklch(0.7 0.16 292);
+  --border: oklch(0.95 0.03 85 / 9%);
+  --border-strong: oklch(0.95 0.03 85 / 18%);
+  --input: oklch(0.95 0.03 85 / 14%);
+  --ring: oklch(0.8 0.09 82 / 60%);
+  --chart-1: oklch(0.8 0.09 82);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.175 0.005 286);
-  --sidebar-foreground: oklch(0.965 0.004 286);
-  --sidebar-primary: oklch(0.7 0.16 292);
-  --sidebar-primary-foreground: oklch(0.15 0.02 292);
-  --sidebar-accent: oklch(0.24 0.008 286);
-  --sidebar-accent-foreground: oklch(0.965 0.004 286);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.7 0.16 292 / 60%);
+  --sidebar: oklch(0.17 0.007 70);
+  --sidebar-foreground: oklch(0.955 0.012 85);
+  --sidebar-primary: oklch(0.8 0.09 82);
+  --sidebar-primary-foreground: oklch(0.18 0.02 70);
+  --sidebar-accent: oklch(0.24 0.01 70);
+  --sidebar-accent-foreground: oklch(0.955 0.012 85);
+  --sidebar-border: oklch(0.95 0.03 85 / 9%);
+  --sidebar-ring: oklch(0.8 0.09 82 / 60%);
 
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 5%) inset, 0 30px 60px -30px oklch(0 0 0 / 60%);
+  --shadow-card:
+    0 1px 0 0 oklch(1 0.03 85 / 7%) inset, 0 30px 60px -30px oklch(0 0 0 / 70%);
   --gradient-fade: linear-gradient(180deg, transparent 0%, var(--background) 100%);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -119,6 +120,7 @@
   }
 
   body {
+    position: relative;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -126,9 +128,39 @@
     font-feature-settings: "ss01", "cv11";
   }
 
+  /* Ambient gold light drifting behind the whole page. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60rem 38rem at 88% -8%, color-mix(in oklch, var(--primary) 10%, transparent), transparent 62%),
+      radial-gradient(48rem 40rem at -10% 45%, color-mix(in oklch, var(--primary) 6%, transparent), transparent 62%);
+  }
+
+  /* Fine film grain over everything for a printed, tactile feel. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   ::selection {
     background: var(--primary);
     color: var(--primary-foreground);
+  }
+
+  /* Slim, quiet scrollbar. */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--primary) 35%, transparent) var(--background);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -141,26 +173,45 @@
 /* Small uppercase mono label used for section eyebrows and metadata. */
 @utility eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted-foreground);
 }
 
-/* Large display headline. */
+/* Large editorial serif headline. */
 @utility display {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1;
 }
 
-/* Italic serif accent word inside headlines. */
+/* Italic gold accent word inside headlines. */
 @utility accent-serif {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
+}
+
+/* Champagne gradient for key words. */
+@utility gold-text {
+  background-image: linear-gradient(
+    100deg,
+    oklch(0.86 0.085 88) 0%,
+    oklch(0.78 0.1 78) 45%,
+    oklch(0.88 0.07 92) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hairline that fades out at both ends. */
+@utility gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--primary) 55%, transparent), transparent);
 }
 
 @utility container-page {
@@ -174,7 +225,8 @@
 }
 
 @utility surface-card {
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, color-mix(in oklch, var(--surface-raised) 70%, transparent), var(--surface) 55%);
   border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
@@ -184,7 +236,7 @@
   background-image:
     linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-size: 72px 72px;
 }
 
 @utility fade-bottom {
@@ -262,7 +314,7 @@
   }
 }
 
-/* Card hover: lift with a soft violet glow. */
+/* Card hover: lift with a soft gold glow. */
 @utility card-lift {
   transition:
     transform 0.5s var(--ease-out-expo),
@@ -270,10 +322,10 @@
     border-color 0.5s var(--ease-out-expo);
   &:hover {
     transform: translateY(-6px);
-    border-color: oklch(0.7 0.16 292 / 45%);
+    border-color: color-mix(in oklch, var(--primary) 45%, transparent);
     box-shadow:
       var(--shadow-card),
-      0 24px 60px -24px oklch(0.7 0.16 292 / 35%);
+      0 24px 60px -24px color-mix(in oklch, var(--primary) 32%, transparent);
   }
   @media (prefers-reduced-motion: reduce) {
     transition: none;
